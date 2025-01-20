@@ -99,7 +99,6 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: SingleChildScrollView(
-              primary: false,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -286,6 +285,7 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
 
                           return ListView(
                             padding: EdgeInsets.zero,
+                            primary: false,
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             children: [

@@ -34,7 +34,7 @@ if (keystorePropertiesFile.exists()) {
 android {
     compileSdkVersion 34
     namespace 'com.mycompany.quizzapp'
-    
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17  // Utiliser Java 21
         targetCompatibility JavaVersion.VERSION_17  // Utiliser Java 21
@@ -66,7 +66,7 @@ android {
        release {
            keyAlias 'my-key-alias'
            keyPassword 'testtodo'
-           storeFile file('C:/Users/Chick/OneDrive/Applications/Apple/QuizMasterApple/quizz_a_p_p/android/app/my-release-key.jks')
+           storeFile file('C:/Users/Chick/OneDrive/Applications/QuizMaster+/quizz_a_p_p/android/app/my-release-key.jks')
            storePassword 'testtodo'
            storeType 'pkcs12'
        }

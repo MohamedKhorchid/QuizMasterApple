@@ -377,7 +377,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
-                                                fontSize: 16.0,
+                                                fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),

@@ -67,7 +67,6 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
             children: [
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                height: 270.0,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -156,20 +155,25 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
-                                Text(
-                                  valueOrDefault<String>(
-                                    widget!.categoryDescription,
-                                    'Description de la catégorie',
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 20.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      widget!.categoryDescription,
+                                      'Description de la catégorie',
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'Inter Tight',
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .override(
-                                        fontFamily: 'Inter Tight',
-                                        color: Colors.white,
-                                        fontSize: 20.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
                                 ),
                               ].divide(SizedBox(height: 16.0)),
                             ),
