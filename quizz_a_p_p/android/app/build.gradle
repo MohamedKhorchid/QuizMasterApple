@@ -66,7 +66,7 @@ android {
        release {
            keyAlias 'my-key-alias'
            keyPassword 'testtodo'
-           storeFile file('C:/Users/Chick/OneDrive/Applications/QuizMaster+/quizz_a_p_p/android/app/my-release-key.jks')
+           storeFile file('C:/Users/Chick/OneDrive/Applications/Apple/QuizMasterApple/quizz_a_p_p/android/app/my-release-key.jks')
            storePassword 'testtodo'
            storeType 'pkcs12'
        }
