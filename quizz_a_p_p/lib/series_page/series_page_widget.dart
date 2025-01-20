@@ -1,0 +1,653 @@
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_ad_banner.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'series_page_model.dart';
+export 'series_page_model.dart';
+
+class SeriesPageWidget extends StatefulWidget {
+  const SeriesPageWidget({
+    super.key,
+    required this.backgroundColor1,
+    required this.backgroundColor2,
+    required this.subcatname,
+  });
+
+  final Color? backgroundColor1;
+  final Color? backgroundColor2;
+  final String? subcatname;
+
+  @override
+  State<SeriesPageWidget> createState() => _SeriesPageWidgetState();
+}
+
+class _SeriesPageWidgetState extends State<SeriesPageWidget> {
+  late SeriesPageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => SeriesPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().randomnumber = random_data.randomInteger(1, 3);
+      safeSetState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return StreamBuilder<List<SeriesRecord>>(
+      stream: querySeriesRecord(
+        queryBuilder: (seriesRecord) => seriesRecord
+            .where(
+              'category',
+              isEqualTo: widget!.subcatname,
+            )
+            .where(
+              'randomkey',
+              isEqualTo: FFAppState().randomnumber,
+            ),
+        singleRecord: true,
+      ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+        List<SeriesRecord> seriesPageSeriesRecordList = snapshot.data!;
+        // Return an empty Container when the item does not exist.
+        if (snapshot.data!.isEmpty) {
+          return Container();
+        }
+        final seriesPageSeriesRecord = seriesPageSeriesRecordList.isNotEmpty
+            ? seriesPageSeriesRecordList.first
+            : null;
+
+        return GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: SingleChildScrollView(
+              primary: false,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 270.0,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          valueOrDefault<Color>(
+                            widget!.backgroundColor2,
+                            FlutterFlowTheme.of(context).primary,
+                          ),
+                          valueOrDefault<Color>(
+                            widget!.backgroundColor1,
+                            FlutterFlowTheme.of(context).primary,
+                          )
+                        ],
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(0.0, -1.0),
+                        end: AlignmentDirectional(0, 1.0),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          24.0, 74.0, 24.0, 24.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 40.0,
+                                fillColor: valueOrDefault<Color>(
+                                  widget!.backgroundColor1,
+                                  FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 24.0,
+                                ),
+                                onPressed: () async {
+                                  context.safePop();
+                                  FFAppState().randomnumber = 0;
+                                  FFAppState().currentpage = 1;
+                                  FFAppState().userscore = 0;
+                                  FFAppState().iscorrect = '';
+                                  FFAppState().selectedindex = -1;
+                                  FFAppState().selectedanswer = [];
+                                  safeSetState(() {});
+                                },
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    'Question ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'Inter Tight',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                  Text(
+                                    FFAppState().currentpage.toString(),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                  Text(
+                                    ' / 10',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Flexible(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 30.0, 0.0, 0.0),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    seriesPageSeriesRecord?.title,
+                                    'Ttitre de la série',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .displaySmall
+                                      .override(
+                                        fontFamily: 'Inter Tight',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ].divide(SizedBox(height: 16.0)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(32.0),
+                        topRight: Radius.circular(32.0),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          32.0, 24.0, 32.0, 24.0),
+                      child: StreamBuilder<List<QuestionsRecord>>(
+                        stream: queryQuestionsRecord(
+                          queryBuilder: (questionsRecord) => questionsRecord
+                              .where(
+                                'serie',
+                                isEqualTo: seriesPageSeriesRecord?.reference.id,
+                              )
+                              .where(
+                                'number',
+                                isEqualTo: FFAppState().currentpage,
+                              ),
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<QuestionsRecord> listViewQuestionsRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final listViewQuestionsRecord =
+                              listViewQuestionsRecordList.isNotEmpty
+                                  ? listViewQuestionsRecordList.first
+                                  : null;
+
+                          return ListView(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              FlutterFlowAdBanner(
+                                height: 50.0,
+                                showsTestAd: false,
+                                iOSAdUnitID:
+                                    'ca-app-pub-5902757634604822/7725729193',
+                                androidAdUnitID:
+                                    'ca-app-pub-5902757634604822/4883943430',
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 20.0, 0.0, 20.0),
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: 2.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      borderRadius: BorderRadius.circular(16.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 24.0, 24.0, 24.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            valueOrDefault<String>(
+                                              listViewQuestionsRecord?.question,
+                                              'Question',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Inter Tight',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                          ),
+                                          Text(
+                                            'Choisissez la bonne réponse parmi les options suivantes :',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ].divide(SizedBox(height: 16.0)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              FlutterFlowAdBanner(
+                                height: 50.0,
+                                showsTestAd: false,
+                                iOSAdUnitID:
+                                    'ca-app-pub-5902757634604822/8106940948',
+                                androidAdUnitID:
+                                    'ca-app-pub-5902757634604822/5207377068',
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 30.0, 0.0, 30.0),
+                                child: Builder(
+                                  builder: (context) {
+                                    final answers = listViewQuestionsRecord
+                                            ?.answers
+                                            ?.toList() ??
+                                        [];
+
+                                    return ListView.separated(
+                                      padding: EdgeInsets.zero,
+                                      primary: false,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: answers.length,
+                                      separatorBuilder: (_, __) =>
+                                          SizedBox(height: 15.0),
+                                      itemBuilder: (context, answersIndex) {
+                                        final answersItem =
+                                            answers[answersIndex];
+                                        return InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            if (FFAppState().isanswered ==
+                                                false) {
+                                              FFAppState().addToSelectedanswer(
+                                                  answersItem);
+                                              FFAppState().isanswered = true;
+                                              safeSetState(() {});
+                                              FFAppState().iscorrect =
+                                                  answersItem;
+                                              safeSetState(() {});
+                                              FFAppState().selectedindex =
+                                                  answersIndex;
+                                              safeSetState(() {});
+                                            }
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color: valueOrDefault<Color>(
+                                                () {
+                                                  if ((FFAppState()
+                                                              .selectedindex ==
+                                                          answersIndex) &&
+                                                      (FFAppState().iscorrect ==
+                                                          listViewQuestionsRecord
+                                                              ?.correct)) {
+                                                    return FlutterFlowTheme.of(
+                                                            context)
+                                                        .success;
+                                                  } else if ((FFAppState()
+                                                              .selectedindex ==
+                                                          answersIndex) &&
+                                                      (FFAppState().iscorrect !=
+                                                          listViewQuestionsRecord
+                                                              ?.correct)) {
+                                                    return FlutterFlowTheme.of(
+                                                            context)
+                                                        .error;
+                                                  } else {
+                                                    return FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground;
+                                                  }
+                                                }(),
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                width: 1.0,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 16.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Text(
+                                                      answersItem,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyLarge
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              FlutterFlowAdBanner(
+                                height: 50.0,
+                                showsTestAd: false,
+                                iOSAdUnitID:
+                                    'ca-app-pub-5902757634604822/5886033916',
+                                androidAdUnitID:
+                                    'ca-app-pub-5902757634604822/7047611343',
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 20.0, 0.0, 0.0),
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: 2.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      borderRadius: BorderRadius.circular(16.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 16.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          if (FFAppState().currentpage < 10)
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                if (FFAppState().iscorrect ==
+                                                    listViewQuestionsRecord
+                                                        ?.correct) {
+                                                  FFAppState().userscore =
+                                                      FFAppState().userscore +
+                                                          1;
+                                                  safeSetState(() {});
+                                                }
+                                                if (FFAppState().currentpage <
+                                                    10) {
+                                                  FFAppState().currentpage =
+                                                      FFAppState().currentpage +
+                                                          1;
+                                                  safeSetState(() {});
+                                                }
+                                                FFAppState().selectedindex = -1;
+                                                FFAppState().isanswered = false;
+                                                safeSetState(() {});
+                                              },
+                                              text: 'Question suivante',
+                                              options: FFButtonOptions(
+                                                height: 48.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 10.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: valueOrDefault<Color>(
+                                                  widget!.backgroundColor1,
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Inter Tight',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .info,
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(24.0),
+                                              ),
+                                            ),
+                                          if (FFAppState().currentpage == 10)
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                if (FFAppState().iscorrect ==
+                                                    listViewQuestionsRecord
+                                                        ?.correct) {
+                                                  FFAppState().userscore =
+                                                      FFAppState().userscore +
+                                                          1;
+                                                  safeSetState(() {});
+                                                }
+
+                                                context.pushNamed(
+                                                  'resultsPage',
+                                                  queryParameters: {
+                                                    'quiztitle': serializeParam(
+                                                      seriesPageSeriesRecord
+                                                          ?.title,
+                                                      ParamType.String,
+                                                    ),
+                                                    'score': serializeParam(
+                                                      FFAppState().userscore,
+                                                      ParamType.int,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              text: 'Passer aux résultats',
+                                              options: FFButtonOptions(
+                                                height: 48.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 10.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: valueOrDefault<Color>(
+                                                  widget!.backgroundColor1,
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Inter Tight',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .info,
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(24.0),
+                                              ),
+                                            ),
+                                        ].divide(SizedBox(width: 15.0)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
