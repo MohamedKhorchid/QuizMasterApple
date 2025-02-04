@@ -16,9 +16,17 @@
 	<string>quizzAPP</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>fr</string>
+		<string>en</string>
+		<string>es</string>
+		<string>pt</string>
+		<string>ar</string>
+	</array>
 
 	<key>CFBundleShortVersionString</key>
-	<string>2</string>
+	<string>20</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -49,7 +57,7 @@
 
 
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>20</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 

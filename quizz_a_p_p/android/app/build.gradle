@@ -34,7 +34,7 @@ if (keystorePropertiesFile.exists()) {
 android {
     compileSdkVersion 34
     namespace 'com.mycompany.quizzapp'
-
+    
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17  // Utiliser Java 21
         targetCompatibility JavaVersion.VERSION_17  // Utiliser Java 21
@@ -58,8 +58,8 @@ android {
         applicationId "com.mycompany.quizzapp"
         minSdkVersion 23
         targetSdkVersion 34
-        versionCode 2
-        versionName "2"
+        versionCode 20
+        versionName "20.0.0"
     }
 
    signingConfigs {

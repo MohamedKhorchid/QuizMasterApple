@@ -163,6 +163,8 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                   FFAppState().iscorrect = '';
                                   FFAppState().selectedindex = -1;
                                   FFAppState().selectedanswer = [];
+                                  FFAppState().correctanswer = '';
+                                  FFAppState().isanswered = false;
                                   safeSetState(() {});
                                 },
                               ),
@@ -170,7 +172,9 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Question ',
+                                    FFLocalizations.of(context).getText(
+                                      'i511mo31' /* Question  */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
@@ -194,7 +198,9 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                         ),
                                   ),
                                   Text(
-                                    ' / 10',
+                                    FFLocalizations.of(context).getText(
+                                      '4febzx6j' /*  / 10 */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -297,6 +303,7 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                             scrollDirection: Axis.vertical,
                             children: [
                               FlutterFlowAdBanner(
+                                width: MediaQuery.sizeOf(context).width * 3.2,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
@@ -344,7 +351,9 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            'Choisissez la bonne réponse parmi les options suivantes :',
+                                            FFLocalizations.of(context).getText(
+                                              'x7ke80ts' /* Choisissez la bonne réponse pa... */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -362,6 +371,7 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                 ),
                               ),
                               FlutterFlowAdBanner(
+                                width: MediaQuery.sizeOf(context).width * 3.2,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
@@ -407,6 +417,10 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                               safeSetState(() {});
                                               FFAppState().selectedindex =
                                                   answersIndex;
+                                              safeSetState(() {});
+                                              FFAppState().correctanswer =
+                                                  listViewQuestionsRecord!
+                                                      .correct;
                                               safeSetState(() {});
                                             }
                                           },
@@ -487,6 +501,7 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                 ),
                               ),
                               FlutterFlowAdBanner(
+                                width: MediaQuery.sizeOf(context).width * 3.2,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
@@ -494,6 +509,71 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                 androidAdUnitID:
                                     'ca-app-pub-5902757634604822/7047611343',
                               ),
+                              if (FFAppState().isanswered == true)
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 20.0, 5.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Flexible(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 10.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'xrp5wp2l' /* La bonne réponse est :  */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  FFAppState().correctanswer,
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
@@ -539,7 +619,10 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                                 FFAppState().isanswered = false;
                                                 safeSetState(() {});
                                               },
-                                              text: 'Question suivante',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'onnqky0o' /* Question suivante */,
+                                              ),
                                               options: FFButtonOptions(
                                                 height: 48.0,
                                                 padding: EdgeInsetsDirectional
@@ -598,7 +681,10 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                                   }.withoutNulls,
                                                 );
                                               },
-                                              text: 'Passer aux résultats',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'efc8ld29' /* Passer aux résultats */,
+                                              ),
                                               options: FFButtonOptions(
                                                 height: 48.0,
                                                 padding: EdgeInsetsDirectional

@@ -16,12 +16,22 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _lastTimeNoteQuiz = prefs.containsKey('ff_lastTimeNoteQuiz')
+          ? DateTime.fromMillisecondsSinceEpoch(
+              prefs.getInt('ff_lastTimeNoteQuiz')!)
+          : _lastTimeNoteQuiz;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   int _currentpage = 1;
   int get currentpage => _currentpage;
@@ -87,4 +97,31 @@ class FFAppState extends ChangeNotifier {
   set isanswered(bool value) {
     _isanswered = value;
   }
+
+  String _correctanswer = '';
+  String get correctanswer => _correctanswer;
+  set correctanswer(String value) {
+    _correctanswer = value;
+  }
+
+  DateTime? _lastTimeNoteQuiz;
+  DateTime? get lastTimeNoteQuiz => _lastTimeNoteQuiz;
+  set lastTimeNoteQuiz(DateTime? value) {
+    _lastTimeNoteQuiz = value;
+    value != null
+        ? prefs.setInt('ff_lastTimeNoteQuiz', value.millisecondsSinceEpoch)
+        : prefs.remove('ff_lastTimeNoteQuiz');
+  }
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

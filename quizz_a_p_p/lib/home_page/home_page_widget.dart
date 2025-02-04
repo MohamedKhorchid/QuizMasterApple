@@ -1,18 +1,21 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
+import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
+/// Create the homepage of a quizz app all in french in a punchy cool design
+/// image and illustration
 class HomePageWidget extends StatefulWidget {
-  /// Create the homepage of a quizz app all in french in a punchy cool design
-  /// image and illustration
   const HomePageWidget({super.key});
 
   @override
@@ -28,6 +31,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if ((FFAppState().lastTimeNoteQuiz == null) ||
+          (functions.daysSince(FFAppState().lastTimeNoteQuiz!) >= 8)) {
+        context.pushNamed('notationPage');
+      }
+    });
   }
 
   @override
@@ -39,6 +50,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -50,11 +63,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                height: 277.0,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -68,14 +80,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 74.0, 24.0, 14.0),
+                      EdgeInsetsDirectional.fromSTEB(24.0, 74.0, 24.0, 74.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'QuizzMaster',
+                        FFLocalizations.of(context).getText(
+                          'ajioo7g4' /* QuizzMaster */,
+                        ),
                         style:
                             FlutterFlowTheme.of(context).displaySmall.override(
                                   fontFamily: 'Readex Pro',
@@ -86,7 +100,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                       ),
                       Text(
-                        'Testez vos connaissances !',
+                        FFLocalizations.of(context).getText(
+                          'rflfw81k' /* Testez vos connaissances ! */,
+                        ),
+                        textAlign: TextAlign.center,
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Readex Pro',
@@ -97,7 +114,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                       ),
                       Text(
-                        'Avec des séries de 10 questions sur le domaine de votre choix',
+                        FFLocalizations.of(context).getText(
+                          'xtbqjuqw' /* Avec des séries de 10 question... */,
+                        ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
@@ -111,11 +130,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 50.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 30.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     FlutterFlowAdBanner(
+                      width: MediaQuery.sizeOf(context).width * 3.2,
                       height: 50.0,
                       showsTestAd: false,
                       iOSAdUnitID: 'ca-app-pub-5902757634604822/1924675979',
@@ -150,7 +170,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Quiz du Jour',
+                                        FFLocalizations.of(context).getText(
+                                          'tzictkf3' /* Quiz du Jour */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall
                                             .override(
@@ -162,7 +184,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             ),
                                       ),
                                       Text(
-                                        '10 questions, \n1 domaine aléatoire chaque jour !',
+                                        FFLocalizations.of(context).getText(
+                                          'ycgc89bw' /* 10 questions, 
+1 domaine aléat... */
+                                          ,
+                                        ),
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -207,7 +233,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     }.withoutNulls,
                                   );
                                 },
-                                text: 'Commencer',
+                                text: FFLocalizations.of(context).getText(
+                                  'ztmfytso' /* Commencer */,
+                                ),
                                 options: FFButtonOptions(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   height: 50.0,
@@ -235,13 +263,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     ),
                     FlutterFlowAdBanner(
+                      width: MediaQuery.sizeOf(context).width * 3.2,
                       height: 50.0,
                       showsTestAd: false,
                       iOSAdUnitID: 'ca-app-pub-5902757634604822/5482709237',
                       androidAdUnitID: 'ca-app-pub-5902757634604822/6081475034',
                     ),
                     Text(
-                      'Catégories',
+                      FFLocalizations.of(context).getText(
+                        'ysn3vt31' /* Catégories */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
                                 fontFamily: 'Readex Pro',
@@ -406,12 +437,36 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       },
                     ),
                     FlutterFlowAdBanner(
+                      width: MediaQuery.sizeOf(context).width * 3.2,
                       height: 50.0,
                       showsTestAd: false,
                       iOSAdUnitID: 'ca-app-pub-5902757634604822/4002106606',
                       androidAdUnitID: 'ca-app-pub-5902757634604822/8490084329',
                     ),
                   ].divide(SizedBox(height: 24.0)),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                child: FlutterFlowLanguageSelector(
+                  width: 200.0,
+                  height: 40.0,
+                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                  borderColor: Colors.transparent,
+                  dropdownIconColor:
+                      FlutterFlowTheme.of(context).secondaryBackground,
+                  borderRadius: 8.0,
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Inter',
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        letterSpacing: 0.0,
+                      ),
+                  hideFlags: true,
+                  flagSize: 24.0,
+                  flagTextGap: 8.0,
+                  currentLanguage: FFLocalizations.of(context).languageCode,
+                  languages: FFLocalizations.languages(),
+                  onChanged: (lang) => setAppLanguage(context, lang),
                 ),
               ),
             ],

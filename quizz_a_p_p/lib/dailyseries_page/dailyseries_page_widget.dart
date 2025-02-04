@@ -157,6 +157,8 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                   FFAppState().iscorrect = '';
                                   FFAppState().selectedindex = -1;
                                   FFAppState().selectedanswer = [];
+                                  FFAppState().isanswered = false;
+                                  FFAppState().correctanswer = '';
                                   safeSetState(() {});
                                 },
                               ),
@@ -164,7 +166,9 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Question ',
+                                    FFLocalizations.of(context).getText(
+                                      'u2pr21wo' /* Question  */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
@@ -188,7 +192,9 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                         ),
                                   ),
                                   Text(
-                                    ' / 10',
+                                    FFLocalizations.of(context).getText(
+                                      'vo03gzhi' /*  / 10 */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -290,6 +296,7 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                             scrollDirection: Axis.vertical,
                             children: [
                               FlutterFlowAdBanner(
+                                width: MediaQuery.sizeOf(context).width * 3.2,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
@@ -337,7 +344,9 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            'Choisissez la bonne réponse parmi les options suivantes :',
+                                            FFLocalizations.of(context).getText(
+                                              'g7uvitgf' /* Choisissez la bonne réponse pa... */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -355,6 +364,7 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                 ),
                               ),
                               FlutterFlowAdBanner(
+                                width: MediaQuery.sizeOf(context).width * 3.2,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
@@ -400,6 +410,10 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                               safeSetState(() {});
                                               FFAppState().selectedindex =
                                                   answersIndex;
+                                              safeSetState(() {});
+                                              FFAppState().correctanswer =
+                                                  listViewQuestionsRecord!
+                                                      .correct;
                                               safeSetState(() {});
                                             }
                                           },
@@ -478,6 +492,7 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                 ),
                               ),
                               FlutterFlowAdBanner(
+                                width: MediaQuery.sizeOf(context).width * 3.2,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
@@ -485,6 +500,71 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                 androidAdUnitID:
                                     'ca-app-pub-5902757634604822/1110287758',
                               ),
+                              if (FFAppState().isanswered == true)
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 20.0, 5.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Flexible(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 10.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '69cq75n1' /* La bonne réponse est :  */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  FFAppState().correctanswer,
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
@@ -532,7 +612,10 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                                 FFAppState().isanswered = false;
                                                 safeSetState(() {});
                                               },
-                                              text: 'Question suivante',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                's8oq5get' /* Question suivante */,
+                                              ),
                                               options: FFButtonOptions(
                                                 height: 48.0,
                                                 padding: EdgeInsetsDirectional
@@ -589,7 +672,10 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                                   }.withoutNulls,
                                                 );
                                               },
-                                              text: 'Passer aux résultats',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'f0tizuyw' /* Passer aux résultats */,
+                                              ),
                                               options: FFButtonOptions(
                                                 height: 48.0,
                                                 padding: EdgeInsetsDirectional

@@ -10,10 +10,10 @@ import 'package:share_plus/share_plus.dart';
 import 'results_page_model.dart';
 export 'results_page_model.dart';
 
+/// generate the final serie page of a quizz app which will show when user
+/// ends a serie of 30 questions in french and using the same style as the
+/// whole current app without image only text or icon
 class ResultsPageWidget extends StatefulWidget {
-  /// generate the final serie page of a quizz app which will show when user
-  /// ends a serie of 30 questions in french and using the same style as the
-  /// whole current app without image only text or icon
   const ResultsPageWidget({
     super.key,
     required this.quiztitle,
@@ -102,7 +102,9 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                                             ),
                                       ),
                                       Text(
-                                        'Quizz terminé',
+                                        FFLocalizations.of(context).getText(
+                                          'ay3v5907' /* Quizz terminé */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -135,6 +137,7 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                             ),
                           ),
                           FlutterFlowAdBanner(
+                            width: MediaQuery.sizeOf(context).width * 3.2,
                             height: 50.0,
                             showsTestAd: false,
                             iOSAdUnitID:
@@ -154,7 +157,9 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Score',
+                                      FFLocalizations.of(context).getText(
+                                        '78zrzji5' /* Score */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
@@ -183,7 +188,9 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                                               ),
                                         ),
                                         Text(
-                                          ' / 10',
+                                          FFLocalizations.of(context).getText(
+                                            'fty1ereh' /*  / 10 */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleMedium
                                               .override(
@@ -203,6 +210,7 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                             ),
                           ),
                           FlutterFlowAdBanner(
+                            width: MediaQuery.sizeOf(context).width * 3.2,
                             height: 50.0,
                             showsTestAd: false,
                             iOSAdUnitID:
@@ -222,7 +230,9 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                               child: Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Vous avez terminé le quizz ! Vous pouvez découvrir de nouvelles catégories ou tester vos connaissances dans ce domaine avec une nouvelle série.',
+                                  FFLocalizations.of(context).getText(
+                                    'urpbi982' /* Vous avez terminé le quizz ! V... */,
+                                  ),
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -236,6 +246,15 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                                 ),
                               ),
                             ),
+                          ),
+                          FlutterFlowAdBanner(
+                            width: MediaQuery.sizeOf(context).width * 3.2,
+                            height: 50.0,
+                            showsTestAd: false,
+                            iOSAdUnitID:
+                                'ca-app-pub-5902757634604822/7801750818',
+                            androidAdUnitID:
+                                'ca-app-pub-5902757634604822/9689547555',
                           ),
                         ].divide(SizedBox(height: 30.0)),
                       ),
@@ -270,14 +289,6 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          FlutterFlowAdBanner(
-                            height: 50.0,
-                            showsTestAd: false,
-                            iOSAdUnitID:
-                                'ca-app-pub-5902757634604822/7801750818',
-                            androidAdUnitID:
-                                'ca-app-pub-5902757634604822/9689547555',
-                          ),
                           FFButtonWidget(
                             onPressed: () async {
                               context.pushNamed('homePage');
@@ -287,9 +298,13 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                               FFAppState().iscorrect = '';
                               FFAppState().selectedindex = -1;
                               FFAppState().currentpage = 1;
+                              FFAppState().correctanswer = '';
+                              FFAppState().isanswered = false;
                               safeSetState(() {});
                             },
-                            text: 'Retour à l\'accueil',
+                            text: FFLocalizations.of(context).getText(
+                              'cjkqubff' /* Retour à l'accueil */,
+                            ),
                             icon: Icon(
                               Icons.home,
                               color: FlutterFlowTheme.of(context).info,
@@ -327,7 +342,9 @@ class _ResultsPageWidgetState extends State<ResultsPageWidget> {
                                       getWidgetBoundingBox(context),
                                 );
                               },
-                              text: 'Partager mon score',
+                              text: FFLocalizations.of(context).getText(
+                                '39407z05' /* Partager mon score */,
+                              ),
                               icon: Icon(
                                 Icons.share,
                                 color: FlutterFlowTheme.of(context).info,

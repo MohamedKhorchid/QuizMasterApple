@@ -145,6 +145,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.int,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'notationPage',
+          path: '/notationPage',
+          builder: (context, params) => NotationPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

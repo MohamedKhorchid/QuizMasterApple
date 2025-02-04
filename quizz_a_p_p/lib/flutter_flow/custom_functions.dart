@@ -19,3 +19,7 @@ DateTime getDayEnd(DateTime currentTime) {
 DateTime getDayStart(DateTime currentTime) {
   return DateTime(currentTime.year, currentTime.month, currentTime.day);
 }
+
+int daysSince(DateTime date) {
+  return DateTime.now().difference(date).inDays;
+}

@@ -70,7 +70,7 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xFFE3F2FD),
+                      FlutterFlowTheme.of(context).secondaryBackground,
                       valueOrDefault<Color>(
                         widget!.categoryBackground,
                         FlutterFlowTheme.of(context).primary,
@@ -190,6 +190,7 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     FlutterFlowAdBanner(
+                      width: MediaQuery.sizeOf(context).width * 3.2,
                       height: 50.0,
                       showsTestAd: false,
                       iOSAdUnitID: 'ca-app-pub-5902757634604822/9497975864',
@@ -214,7 +215,9 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Sous-catégories',
+                                FFLocalizations.of(context).getText(
+                                  'koprlvem' /* Sous-catégories */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -226,6 +229,7 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                                     ),
                               ),
                               FlutterFlowAdBanner(
+                                width: MediaQuery.sizeOf(context).width * 3.2,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
@@ -377,6 +381,7 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                                 },
                               ),
                               FlutterFlowAdBanner(
+                                width: MediaQuery.sizeOf(context).width * 3.2,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
