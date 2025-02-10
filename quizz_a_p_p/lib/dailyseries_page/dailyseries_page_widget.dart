@@ -295,14 +295,17 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             children: [
-                              FlutterFlowAdBanner(
-                                width: MediaQuery.sizeOf(context).width * 3.2,
-                                height: 50.0,
-                                showsTestAd: false,
-                                iOSAdUnitID:
-                                    'ca-app-pub-5902757634604822/8859386463',
-                                androidAdUnitID:
-                                    'ca-app-pub-5902757634604822/6177382805',
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: FlutterFlowAdBanner(
+                                  width: 320.0,
+                                  height: 50.0,
+                                  showsTestAd: false,
+                                  iOSAdUnitID:
+                                      'ca-app-pub-5902757634604822/8859386463',
+                                  androidAdUnitID:
+                                      'ca-app-pub-5902757634604822/6177382805',
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -363,14 +366,17 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                   ),
                                 ),
                               ),
-                              FlutterFlowAdBanner(
-                                width: MediaQuery.sizeOf(context).width * 3.2,
-                                height: 50.0,
-                                showsTestAd: false,
-                                iOSAdUnitID:
-                                    'ca-app-pub-5902757634604822/1795284667',
-                                androidAdUnitID:
-                                    'ca-app-pub-5902757634604822/3600719728',
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: FlutterFlowAdBanner(
+                                  width: 320.0,
+                                  height: 50.0,
+                                  showsTestAd: false,
+                                  iOSAdUnitID:
+                                      'ca-app-pub-5902757634604822/1795284667',
+                                  androidAdUnitID:
+                                      'ca-app-pub-5902757634604822/3600719728',
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -491,14 +497,17 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                   },
                                 ),
                               ),
-                              FlutterFlowAdBanner(
-                                width: MediaQuery.sizeOf(context).width * 3.2,
-                                height: 50.0,
-                                showsTestAd: false,
-                                iOSAdUnitID:
-                                    'ca-app-pub-5902757634604822/8108872572',
-                                androidAdUnitID:
-                                    'ca-app-pub-5902757634604822/1110287758',
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: FlutterFlowAdBanner(
+                                  width: 320.0,
+                                  height: 50.0,
+                                  showsTestAd: false,
+                                  iOSAdUnitID:
+                                      'ca-app-pub-5902757634604822/8108872572',
+                                  androidAdUnitID:
+                                      'ca-app-pub-5902757634604822/1110287758',
+                                ),
                               ),
                               if (FFAppState().isanswered == true)
                                 Align(

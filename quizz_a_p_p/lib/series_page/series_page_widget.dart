@@ -302,14 +302,17 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             children: [
-                              FlutterFlowAdBanner(
-                                width: MediaQuery.sizeOf(context).width * 3.2,
-                                height: 50.0,
-                                showsTestAd: false,
-                                iOSAdUnitID:
-                                    'ca-app-pub-5902757634604822/7725729193',
-                                androidAdUnitID:
-                                    'ca-app-pub-5902757634604822/4883943430',
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: FlutterFlowAdBanner(
+                                  width: 320.0,
+                                  height: 50.0,
+                                  showsTestAd: false,
+                                  iOSAdUnitID:
+                                      'ca-app-pub-5902757634604822/7725729193',
+                                  androidAdUnitID:
+                                      'ca-app-pub-5902757634604822/4883943430',
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -370,14 +373,17 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                   ),
                                 ),
                               ),
-                              FlutterFlowAdBanner(
-                                width: MediaQuery.sizeOf(context).width * 3.2,
-                                height: 50.0,
-                                showsTestAd: false,
-                                iOSAdUnitID:
-                                    'ca-app-pub-5902757634604822/8106940948',
-                                androidAdUnitID:
-                                    'ca-app-pub-5902757634604822/5207377068',
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: FlutterFlowAdBanner(
+                                  width: 320.0,
+                                  height: 50.0,
+                                  showsTestAd: false,
+                                  iOSAdUnitID:
+                                      'ca-app-pub-5902757634604822/8106940948',
+                                  androidAdUnitID:
+                                      'ca-app-pub-5902757634604822/5207377068',
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -501,7 +507,7 @@ class _SeriesPageWidgetState extends State<SeriesPageWidget> {
                                 ),
                               ),
                               FlutterFlowAdBanner(
-                                width: MediaQuery.sizeOf(context).width * 3.2,
+                                width: 320.0,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:

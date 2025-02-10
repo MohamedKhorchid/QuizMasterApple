@@ -134,12 +134,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    FlutterFlowAdBanner(
-                      width: MediaQuery.sizeOf(context).width * 3.2,
-                      height: 50.0,
-                      showsTestAd: false,
-                      iOSAdUnitID: 'ca-app-pub-5902757634604822/1924675979',
-                      androidAdUnitID: 'ca-app-pub-5902757634604822/4253927045',
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: FlutterFlowAdBanner(
+                        width: 320.0,
+                        height: 50.0,
+                        showsTestAd: false,
+                        iOSAdUnitID: 'ca-app-pub-5902757634604822/1924675979',
+                        androidAdUnitID:
+                            'ca-app-pub-5902757634604822/4253927045',
+                      ),
                     ),
                     Material(
                       color: Colors.transparent,
@@ -262,12 +266,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                     ),
-                    FlutterFlowAdBanner(
-                      width: MediaQuery.sizeOf(context).width * 3.2,
-                      height: 50.0,
-                      showsTestAd: false,
-                      iOSAdUnitID: 'ca-app-pub-5902757634604822/5482709237',
-                      androidAdUnitID: 'ca-app-pub-5902757634604822/6081475034',
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: FlutterFlowAdBanner(
+                        width: 320.0,
+                        height: 50.0,
+                        showsTestAd: false,
+                        iOSAdUnitID: 'ca-app-pub-5902757634604822/5482709237',
+                        androidAdUnitID:
+                            'ca-app-pub-5902757634604822/6081475034',
+                      ),
                     ),
                     Text(
                       FFLocalizations.of(context).getText(
@@ -436,12 +444,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         );
                       },
                     ),
-                    FlutterFlowAdBanner(
-                      width: MediaQuery.sizeOf(context).width * 3.2,
-                      height: 50.0,
-                      showsTestAd: false,
-                      iOSAdUnitID: 'ca-app-pub-5902757634604822/4002106606',
-                      androidAdUnitID: 'ca-app-pub-5902757634604822/8490084329',
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: FlutterFlowAdBanner(
+                        width: 320.0,
+                        height: 50.0,
+                        showsTestAd: false,
+                        iOSAdUnitID: 'ca-app-pub-5902757634604822/4002106606',
+                        androidAdUnitID:
+                            'ca-app-pub-5902757634604822/8490084329',
+                      ),
                     ),
                   ].divide(SizedBox(height: 24.0)),
                 ),

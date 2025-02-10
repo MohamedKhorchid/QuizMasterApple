@@ -450,13 +450,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
       'pt': '',
     },
-    'nmwfn1cy': {
-      'fr': 'Noter sur le Play Store',
-      'ar': '',
-      'en': '',
-      'es': '',
-      'pt': '',
-    },
   },
   // Miscellaneous
   {

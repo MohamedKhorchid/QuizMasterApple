@@ -280,41 +280,6 @@ class _NotationPageWidgetState extends State<NotationPageWidget> {
                               borderRadius: BorderRadius.circular(25.0),
                             ),
                           ),
-                          FFButtonWidget(
-                            onPressed: () async {
-                              await launchURL(
-                                  'https://play.google.com/store/apps/details?id=com.mycompany.quizzapp');
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'nmwfn1cy' /* Noter sur le Play Store */,
-                            ),
-                            icon: Icon(
-                              Icons.star,
-                              color: FlutterFlowTheme.of(context).info,
-                              size: 15.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 50.0,
-                              padding: EdgeInsets.all(8.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).tertiary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Inter Tight',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    letterSpacing: 0.0,
-                                  ),
-                              elevation: 0.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(25.0),
-                            ),
-                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 50.0, 0.0, 0.0),

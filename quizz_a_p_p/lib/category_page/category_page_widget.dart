@@ -189,12 +189,16 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    FlutterFlowAdBanner(
-                      width: MediaQuery.sizeOf(context).width * 3.2,
-                      height: 50.0,
-                      showsTestAd: false,
-                      iOSAdUnitID: 'ca-app-pub-5902757634604822/9497975864',
-                      androidAdUnitID: 'ca-app-pub-5902757634604822/4832511544',
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: FlutterFlowAdBanner(
+                        width: 320.0,
+                        height: 50.0,
+                        showsTestAd: false,
+                        iOSAdUnitID: 'ca-app-pub-5902757634604822/9497975864',
+                        androidAdUnitID:
+                            'ca-app-pub-5902757634604822/4832511544',
+                      ),
                     ),
                     Material(
                       color: Colors.transparent,
@@ -228,14 +232,17 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
-                              FlutterFlowAdBanner(
-                                width: MediaQuery.sizeOf(context).width * 3.2,
-                                height: 50.0,
-                                showsTestAd: false,
-                                iOSAdUnitID:
-                                    'ca-app-pub-5902757634604822/2257780092',
-                                androidAdUnitID:
-                                    'ca-app-pub-5902757634604822/3838455079',
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: FlutterFlowAdBanner(
+                                  width: 320.0,
+                                  height: 50.0,
+                                  showsTestAd: false,
+                                  iOSAdUnitID:
+                                      'ca-app-pub-5902757634604822/2257780092',
+                                  androidAdUnitID:
+                                      'ca-app-pub-5902757634604822/3838455079',
+                                ),
                               ),
                               StreamBuilder<List<SubcategoriesRecord>>(
                                 stream: querySubcategoriesRecord(
@@ -381,7 +388,7 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                                 },
                               ),
                               FlutterFlowAdBanner(
-                                width: MediaQuery.sizeOf(context).width * 3.2,
+                                width: 320.0,
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
