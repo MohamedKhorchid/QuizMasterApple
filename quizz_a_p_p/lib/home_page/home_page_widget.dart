@@ -140,7 +140,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         width: 320.0,
                         height: 50.0,
                         showsTestAd: false,
-                        iOSAdUnitID: 'ca-app-pub-5902757634604822/1924675979',
+                        iOSAdUnitID: 'ca-app-pub-5902757634604822/5100942576',
                         androidAdUnitID:
                             'ca-app-pub-5902757634604822/4253927045',
                       ),
@@ -272,7 +272,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         width: 320.0,
                         height: 50.0,
                         showsTestAd: false,
-                        iOSAdUnitID: 'ca-app-pub-5902757634604822/5482709237',
+                        iOSAdUnitID: 'ca-app-pub-5902757634604822/5064411416',
                         androidAdUnitID:
                             'ca-app-pub-5902757634604822/6081475034',
                       ),
@@ -450,7 +450,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         width: 320.0,
                         height: 50.0,
                         showsTestAd: false,
-                        iOSAdUnitID: 'ca-app-pub-5902757634604822/4002106606',
+                        iOSAdUnitID: 'ca-app-pub-5902757634604822/3559758050',
                         androidAdUnitID:
                             'ca-app-pub-5902757634604822/8490084329',
                       ),

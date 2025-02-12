@@ -195,7 +195,7 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                         width: 320.0,
                         height: 50.0,
                         showsTestAd: false,
-                        iOSAdUnitID: 'ca-app-pub-5902757634604822/9497975864',
+                        iOSAdUnitID: 'ca-app-pub-5902757634604822/3079840937',
                         androidAdUnitID:
                             'ca-app-pub-5902757634604822/4832511544',
                       ),
@@ -239,7 +239,7 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                                   height: 50.0,
                                   showsTestAd: false,
                                   iOSAdUnitID:
-                                      'ca-app-pub-5902757634604822/2257780092',
+                                      'ca-app-pub-5902757634604822/5907591930',
                                   androidAdUnitID:
                                       'ca-app-pub-5902757634604822/3838455079',
                                 ),
@@ -392,7 +392,7 @@ class _CategoryPageWidgetState extends State<CategoryPageWidget> {
                                 height: 50.0,
                                 showsTestAd: false,
                                 iOSAdUnitID:
-                                    'ca-app-pub-5902757634604822/8184894192',
+                                    'ca-app-pub-5902757634604822/9040187587',
                                 androidAdUnitID:
                                     'ca-app-pub-5902757634604822/1631633138',
                               ),

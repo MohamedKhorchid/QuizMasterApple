@@ -302,7 +302,7 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                   height: 50.0,
                                   showsTestAd: false,
                                   iOSAdUnitID:
-                                      'ca-app-pub-5902757634604822/8859386463',
+                                      'ca-app-pub-5902757634604822/8533755275',
                                   androidAdUnitID:
                                       'ca-app-pub-5902757634604822/6177382805',
                                 ),
@@ -373,7 +373,7 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                   height: 50.0,
                                   showsTestAd: false,
                                   iOSAdUnitID:
-                                      'ca-app-pub-5902757634604822/1795284667',
+                                      'ca-app-pub-5902757634604822/2605769031',
                                   androidAdUnitID:
                                       'ca-app-pub-5902757634604822/3600719728',
                                 ),
@@ -504,7 +504,7 @@ class _DailyseriesPageWidgetState extends State<DailyseriesPageWidget> {
                                   height: 50.0,
                                   showsTestAd: false,
                                   iOSAdUnitID:
-                                      'ca-app-pub-5902757634604822/8108872572',
+                                      'ca-app-pub-5902757634604822/3979432596',
                                   androidAdUnitID:
                                       'ca-app-pub-5902757634604822/1110287758',
                                 ),
