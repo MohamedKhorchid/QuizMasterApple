@@ -4,7 +4,7 @@
             "outputFile": "com.mycompany.quizzapp-mergeDebugResources-41:/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Chick\\.gradle\\caches\\transforms-4\\b5826ad1d777a0e278fa9ce715039650\\transformed\\appcompat-1.2.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\Chick\\.gradle\\caches\\transforms-4\\d695bc063b3aa76b448ddd0c41e0f55d\\transformed\\appcompat-1.2.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
