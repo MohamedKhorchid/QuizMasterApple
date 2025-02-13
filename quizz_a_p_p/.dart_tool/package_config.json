@@ -435,9 +435,9 @@
     },
     {
       "name": "petitparser",
-      "rootUri": "file:///C:/Users/Chick/AppData/Local/Pub/Cache/hosted/pub.dev/petitparser-6.0.2",
+      "rootUri": "file:///C:/Users/Chick/AppData/Local/Pub/Cache/hosted/pub.dev/petitparser-6.1.0",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.5"
     },
     {
       "name": "platform",
@@ -579,9 +579,9 @@
     },
     {
       "name": "synchronized",
-      "rootUri": "file:///C:/Users/Chick/AppData/Local/Pub/Cache/hosted/pub.dev/synchronized-3.3.0+3",
+      "rootUri": "file:///C:/Users/Chick/AppData/Local/Pub/Cache/hosted/pub.dev/synchronized-3.3.1",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.7"
     },
     {
       "name": "term_glyph",
@@ -699,7 +699,7 @@
     },
     {
       "name": "webview_flutter_wkwebview",
-      "rootUri": "file:///C:/Users/Chick/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.0",
+      "rootUri": "file:///C:/Users/Chick/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.1",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
@@ -734,7 +734,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-02-12T20:24:41.984820Z",
+  "generated": "2025-02-13T21:52:53.282987Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///C:/Users/Chick/Downloads/flutter_windows_3.27.0-stable/flutter",

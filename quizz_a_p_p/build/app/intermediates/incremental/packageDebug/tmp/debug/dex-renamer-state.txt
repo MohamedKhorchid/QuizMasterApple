@@ -1,4 +1,4 @@
-#Wed Feb 12 21:32:06 CET 2025
+#Thu Feb 13 23:03:38 CET 2025
 base.0=C\:\\Users\\Chick\\OneDrive\\Applications\\Apple\\QuizMasterApple\\quizz_a_p_p\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Chick\\OneDrive\\Applications\\Apple\\QuizMasterApple\\quizz_a_p_p\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Chick\\OneDrive\\Applications\\Apple\\QuizMasterApple\\quizz_a_p_p\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
